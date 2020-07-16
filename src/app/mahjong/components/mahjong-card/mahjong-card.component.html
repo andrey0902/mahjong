@@ -1,0 +1,13 @@
+<div class="card"
+     (click)="clickedOnCard()"
+>
+  <span class="card-title"
+        [@openClose]="(
+        index === firstCard?.index
+         || openedMapCards && openedMapCards[index]
+         || tempSelected)
+         ? 'open' : 'closed'"
+  >
+    {{value}}
+  </span>
+</div>

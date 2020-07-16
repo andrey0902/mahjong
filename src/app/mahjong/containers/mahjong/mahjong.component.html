@@ -1,0 +1,14 @@
+<section class="container">
+  <div class="row">
+    <div class="col">
+      <app-mahjong-card *ngFor="let card of cards; let index = index;"
+                        [value]="card"
+                        [index]="index"
+                        [firstCard]="firstCard"
+                        [openedMapCards]="openedMapCards"
+                        (clickOnCard)="clickOnCard($event)"
+      >
+      </app-mahjong-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.col {
+  padding: 1rem;
+  grid-gap: 2vw;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+
+}
+
+app-mahjong-card {
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .col {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
