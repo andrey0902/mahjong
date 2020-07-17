@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mahjong"
+    }
+  },
+  "defaultProject": "mahjong",
+  "cli": {
+    "analytics": false
+  }
 }

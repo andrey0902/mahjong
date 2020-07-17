@@ -12,19 +12,25 @@ export class MahjongService {
   constructor() {
   }
 
-  public getLiatCards(): number[] {
-    return this.shakeArray(this.createCollectionsOfCardNumber());
-  }
-
   public createCollectionsOfCardNumber(): number[] {
+    // it is a simple solution to a simple task.
+    //   For a more complex task, you need to choose an advanced solution with caches and other improvements)))
     const map = new Map();
-    while (map.size < Math.round(this.sizeOfCardMahjong / this.divideTo)) {
-      const numberValue: number = this.getRandomInteger(this.minValueCard, this.maxValueCard);
-      map.set(numberValue, numberValue);
-    }
+    nextPrime:
+      for (let numberValue = 2; numberValue <= this.maxValueCard; numberValue++) {
+        for (let j = 2; j < numberValue; j++) {
+          if (numberValue % j === 0) {
+            continue nextPrime;
+          }
+        }
+        map.set(numberValue, numberValue);
+      }
     return [...map.keys(), ...map.values()];
   }
 
+  public getLiatCards(): number[] {
+    return this.shakeArray(this.createCollectionsOfCardNumber());
+  }
 
   public getRandomInteger(min, max): number {
     const rand = min - 0.5 + Math.random() * (max - min + 1);
