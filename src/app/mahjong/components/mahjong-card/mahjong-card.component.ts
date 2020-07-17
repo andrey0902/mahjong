@@ -13,7 +13,7 @@ import {delay, takeUntil} from 'rxjs/operators';
         opacity: 1,
       })),
       state('closed', style({
-        opacity: 0.5,
+        opacity: 0,
       })),
       transition('open => closed', [
         animate('1.5s')
